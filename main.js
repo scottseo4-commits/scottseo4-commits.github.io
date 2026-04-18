@@ -69,30 +69,32 @@ class LottoBall extends HTMLElement {
   document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
     const lottoGamesContainer = document.getElementById('lotto-games-container');
-    const lightModeBtn = document.getElementById('light-mode-btn');
-    const darkModeBtn = document.getElementById('dark-mode-btn');
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('.theme-icon');
+    const themeText = themeToggle.querySelector('.theme-text');
   
     // 테마 설정 기능
-    const setTheme = (theme) => {
+    const applyTheme = (theme) => {
       document.documentElement.setAttribute('data-theme', theme);
       localStorage.setItem('theme', theme);
       
-      // 버튼 활성화 상태 표시
       if (theme === 'dark') {
-        darkModeBtn.classList.add('active');
-        lightModeBtn.classList.remove('active');
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark Mode';
       } else {
-        lightModeBtn.classList.add('active');
-        darkModeBtn.classList.remove('active');
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light Mode';
       }
     };
 
     // 초기 테마 로드
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
+    applyTheme(savedTheme);
 
-    lightModeBtn.addEventListener('click', () => setTheme('light'));
-    darkModeBtn.addEventListener('click', () => setTheme('dark'));
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+    });
 
     const generateLotto = () => {
       lottoGamesContainer.innerHTML = '';
