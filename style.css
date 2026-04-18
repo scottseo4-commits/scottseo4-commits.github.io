@@ -81,6 +81,21 @@ header {
     font-size: 1.1rem;
 }
 
+.ad-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.05); /* 광고가 없을 때 보일 수 있는 아주 옅은 배경 */
+    border-radius: 8px;
+    min-height: 90px; /* 광고 로딩 전 최소 높이 확보 */
+}
+
+.top-ad { margin-bottom: 25px; }
+.middle-ad { margin-top: 30px; margin-bottom: 10px; }
+.bottom-ad { margin-top: 40px; }
+
 h1 {
     color: var(--header-color);
     font-weight: 800;
