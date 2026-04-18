@@ -111,14 +111,17 @@ document.addEventListener('DOMContentLoaded', () => {
       gameContainer.classList.add('lotto-game');
 
       const numbers = new Set();
-      while (numbers.size < 7) { 
+      while (numbers.size < 6) {
         const randomNumber = Math.floor(Math.random() * 45) + 1;
         numbers.add(randomNumber);
       }
 
-      const allNumbers = Array.from(numbers).sort((a, b) => a - b);
-      const mainNumbers = allNumbers.slice(0, 6);
-      const bonusNumber = allNumbers[6];
+      const mainNumbers = Array.from(numbers).sort((a, b) => a - b);
+
+      let bonusNumber;
+      do {
+        bonusNumber = Math.floor(Math.random() * 45) + 1;
+      } while (numbers.has(bonusNumber));
 
       mainNumbers.forEach((number, index) => {
         setTimeout(() => {
