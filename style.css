@@ -162,6 +162,11 @@ h1 {
     padding-top: 20px;
 }
 
+.dinner-section {
+    margin-top: 50px;
+    padding-top: 20px;
+}
+
 .comment-section {
     margin-top: 50px;
     padding-top: 20px;
@@ -191,6 +196,40 @@ h1 {
     font-size: 0.9rem;
     color: var(--subtitle-color);
     margin-bottom: 25px;
+}
+
+.dinner-card {
+    background-color: var(--game-bg);
+    border-radius: 14px;
+    padding: 24px 20px;
+    transition: background-color 0.3s ease;
+}
+
+.secondary-btn {
+    background: linear-gradient(135deg, #ff8a5c, #ff6b4a);
+    color: #fff;
+    border: none;
+    padding: 13px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 74, 0.25);
+}
+
+.secondary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(255, 107, 74, 0.35);
+}
+
+.dinner-result {
+    margin: 18px 0 0;
+    min-height: 32px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--header-color);
+    line-height: 1.6;
 }
 
 .partnership-form {

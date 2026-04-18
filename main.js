@@ -69,9 +69,28 @@ customElements.define('lotto-ball', LottoBall);
 document.addEventListener('DOMContentLoaded', () => {
   const generateBtn = document.getElementById('generate-btn');
   const lottoGamesContainer = document.getElementById('lotto-games-container');
+  const dinnerBtn = document.getElementById('dinner-btn');
+  const dinnerResult = document.getElementById('dinner-result');
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = themeToggle.querySelector('.theme-icon');
   const themeText = themeToggle.querySelector('.theme-text');
+  const dinnerMenus = [
+    '김치찌개 + 계란말이',
+    '된장찌개 + 제육볶음',
+    '삼겹살 + 쌈채소',
+    '치킨 + 콜라',
+    '마라탕 + 꿔바로우',
+    '초밥 세트',
+    '돈카츠 정식',
+    '비빔밥 + 미소된장국',
+    '쌀국수 + 짜조',
+    '햄버거 + 감자튀김',
+    '파스타 + 샐러드',
+    '떡볶이 + 튀김',
+    '부대찌개 + 라면사리',
+    '순두부찌개 + 공깃밥',
+    '보쌈 + 막국수'
+  ];
 
   // 테마 설정 기능
   const applyTheme = (theme) => {
@@ -150,7 +169,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const recommendDinner = () => {
+    const randomIndex = Math.floor(Math.random() * dinnerMenus.length);
+    dinnerResult.textContent = `오늘 저녁은 ${dinnerMenus[randomIndex]}`;
+
+    dinnerBtn.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+      dinnerBtn.style.transform = '';
+    }, 100);
+  };
+
   generateBtn.addEventListener('click', generateLotto);
+  dinnerBtn.addEventListener('click', recommendDinner);
 
   // 키보드 단축키 추가 (Enter, Space)
   window.addEventListener('keydown', (e) => {
